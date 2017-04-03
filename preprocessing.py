@@ -86,10 +86,10 @@ def expand_cycle(cycle):
     # Get date range for the cycle
     dates = pd.date_range(start=cycle.cycle_start, periods=cycle.cycle_length).tolist()
     # Create a boolean indicator of period days
-    period = np.zeros(cycle.cycle_length, dtype=np.int8)
-    period[:cycle.period_length] = 1
+    period = np.zeros(int(cycle.cycle_length), dtype=np.int8)
+    period[:int(cycle.period_length)] = 1
     # Enumerate days in cycle
-    day_in_cycle = np.arange(1, cycle.cycle_length + 1, dtype=np.int8)
+    day_in_cycle = np.arange(1, int(cycle.cycle_length) + 1, dtype=np.int8)
 
     # Build the index out of user_id and dates
     index = pd.MultiIndex.from_tuples(
